@@ -11,7 +11,7 @@
 
 ## 📁 Структура проекта
 ## Задание 1 
-### [**report_image_bugs.md**](\report_image_bugs.md) заметки по багам из первого задания
+### [**report_image_bugs.md**](report_image_bugs.md) заметки по багам из первого задания
 
 ## Задание 2
 ```
