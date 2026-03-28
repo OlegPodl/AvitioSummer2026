@@ -3,34 +3,24 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.support.ui import Select
+from pages import constants
 
 class ListingsPage:
 
-    URL = "https://cerulean-praline-8e5aa6.netlify.app/"
-
-    MIN_PRICE_INPUT = (By.CSS_SELECTOR, 'input[placeholder = "От"]')
-    MAX_PRICE_INPUT = (By.CSS_SELECTOR, 'input[placeholder = "До"]')
-
-    PRICE_ELEMENTS = (By.CLASS_NAME, "_card__price_15fhn_241")
-    CATEGORY_ELEMENT = (By.CLASS_NAME, "_card__category_15fhn_259")
-    URGENT_FLAG_ELEMENTS = (By.CLASS_NAME, "_card__priority_15fhn_172")
-    STATISTIC_BUTTON = (By.CSS_SELECTOR, "a[href='/stats']")
-    LISTINGS_BUTTON = (By.CSS_SELECTOR, "a[href='/list']")
-
     def __init__(self, driver):
         self.driver = driver
-        self.wait = WebDriverWait(driver, 10)
+        self.wait = WebDriverWait(driver, constants.WAITING_TIME)
 
     def open(self):
-        self.driver.get(self.URL)
+        self.driver.get(constants.URL)
 
     def set_min_price(self, value):
-        element = self.wait.until(EC.visibility_of_element_located(self.MIN_PRICE_INPUT))
+        element = self.wait.until(EC.visibility_of_element_located(constants.MIN_PRICE_INPUT))
         element.clear()
         element.send_keys(value)
 
     def set_max_price(self, value):
-        element = self.wait.until(EC.visibility_of_element_located(self.MAX_PRICE_INPUT))
+        element = self.wait.until(EC.visibility_of_element_located(constants.MAX_PRICE_INPUT))
         element.clear()
         element.send_keys(value)
 
@@ -46,7 +36,7 @@ class ListingsPage:
 
         while current_page <= total_pages:
 
-            price_elements = self.wait.until(EC.visibility_of_all_elements_located(self.PRICE_ELEMENTS))
+            price_elements = self.wait.until(EC.visibility_of_all_elements_located(constants.PRICE_ELEMENTS))
             for el in price_elements:
                 price_text = el.text.replace(" ", "").replace("₽", "")
                 if price_text.isdigit():
@@ -79,11 +69,11 @@ class ListingsPage:
             return False
         
     def get_min_price_val(self):
-        element = self.wait.until(EC.visibility_of_element_located(self.MIN_PRICE_INPUT))
+        element = self.wait.until(EC.visibility_of_element_located(constants.MIN_PRICE_INPUT))
         return element.get_attribute("value")
 
     def get_max_price_val(self):
-        element = self.wait.until(EC.visibility_of_element_located(self.MAX_PRICE_INPUT))
+        element = self.wait.until(EC.visibility_of_element_located(constants.MAX_PRICE_INPUT))
         return element.get_attribute("value")
     
     def count_listings(self):
@@ -115,7 +105,7 @@ class ListingsPage:
 
         while current_page <= total_pages:
 
-            category_elements = self.wait.until(EC.visibility_of_all_elements_located(self.CATEGORY_ELEMENT))
+            category_elements = self.wait.until(EC.visibility_of_all_elements_located(constants.CATEGORY_ELEMENT))
             for el in category_elements:
                 category_text = el.text.replace(" ", "")
                 categories.append(category_text)
@@ -150,7 +140,7 @@ class ListingsPage:
 
         while current_page <= total_pages:
             urgent_elements = self.wait.until(
-                EC.presence_of_all_elements_located(self.URGENT_FLAG_ELEMENTS)
+                EC.presence_of_all_elements_located(constants.URGENT_FLAG_ELEMENTS)
             )
 
             urgent_count += len(urgent_elements)
@@ -195,9 +185,9 @@ class ListingsPage:
         element.click()
 
     def go_to_statistic_page(self):
-        element = self.wait.until(EC.element_to_be_clickable(self.STATISTIC_BUTTON))
+        element = self.wait.until(EC.element_to_be_clickable(constants.STATISTIC_BUTTON))
         element.click()
 
     def go_to_listings_page(self):
-        element = self.wait.until(EC.element_to_be_clickable(self.LISTINGS_BUTTON))
+        element = self.wait.until(EC.element_to_be_clickable(constants.LISTINGS_BUTTON))
         element.click()

@@ -10,7 +10,10 @@
 ---
 
 ## 📁 Структура проекта
+## Задание 1 
+### [**report_image_bugs.md**](\report_image_bugs.md) заметки по багам из первого задания
 
+## Задание 2
 ```
 pages/                 Page Object Model (POM)
   listings_page.py     логика главной страницы
@@ -31,7 +34,6 @@ requirements.txt      зависимости проекта
 
 TESTCASES.md         тест-кейсы
 BUGS.md              найденные дефекты
-report_image_bugs.md заметки по багам из первого задания
 ```
 
 ---

@@ -1,3 +1,4 @@
 /test
-/__pycache__
-/.pytest_cache
+__pycache__/
+.pytest_cache/
+nado_sdelat.txt

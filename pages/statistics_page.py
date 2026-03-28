@@ -3,33 +3,25 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 import json
 from urllib.parse import urlparse, parse_qs
+from pages import constants
 
 class StatisticPage:
 
-    URL = "https://cerulean-praline-8e5aa6.netlify.app"
-    STATISTIC_BUTTON = (By.CSS_SELECTOR, "a[href='/stats']")
-    LISTINGS_BUTTON = (By.CSS_SELECTOR, "a[href='/list']")
-    TIMER = (By.CLASS_NAME, "_timeValue_ir5wu_112")
-    UPDATE_BUTTON = (By.CLASS_NAME, "_refreshButton_ir5wu_16")
-    STOP_BUTTON = (By.CLASS_NAME, "_toggleIcon_ir5wu_94")
-    START_BUTTON = (By.CLASS_NAME, "_toggleButton_ir5wu_69")
-
-
     def __init__(self, driver):
         self.driver = driver
-        self.wait = WebDriverWait(driver, 10)
+        self.wait = WebDriverWait(driver, constants.WAITING_TIME)
 
     def open(self):
-        self.driver.get(self.URL)
-        stats_button = self.wait.until(EC.element_to_be_clickable(self.STATISTIC_BUTTON))
+        self.driver.get(constants.URL)
+        stats_button = self.wait.until(EC.element_to_be_clickable(constants.STATISTIC_BUTTON))
         stats_button.click()
 
     def go_to_listings_page(self):
-        element = self.wait.until(EC.element_to_be_clickable(self.LISTINGS_BUTTON))
+        element = self.wait.until(EC.element_to_be_clickable(constants.LISTINGS_BUTTON))
         element.click()
 
     def get_time_to_update(self):
-        element = self.wait.until(EC.visibility_of_element_located(self.TIMER))
+        element = self.wait.until(EC.visibility_of_element_located(constants.TIMER))
         time = element.text.split(':')
         return int(time[0])*60 + int(time[1])
 
@@ -62,22 +54,20 @@ class StatisticPage:
         return False
     
     def man_update(self):
-        element = self.driver.find_element(*self.UPDATE_BUTTON)
-        assert element.is_displayed() and element.is_enabled(), f"КНОПКЕ ПИЗДЕЦ"
-        element = self.wait.until(EC.element_to_be_clickable(self.UPDATE_BUTTON))
+        element = self.wait.until(EC.element_to_be_clickable(constants.UPDATE_BUTTON))
         element.click()
 
     def stop_timer(self):
-        element = self.wait.until(EC.element_to_be_clickable(self.STOP_BUTTON))
+        element = self.wait.until(EC.element_to_be_clickable(constants.STOP_BUTTON))
         element.click()
 
     def start_timer(self):
-        element = self.wait.until(EC.element_to_be_clickable(self.START_BUTTON))
+        element = self.wait.until(EC.element_to_be_clickable(constants.START_BUTTON))
         element.click()
 
     def is_timer_visible(self):
         try:
-            element = self.wait.until(EC.visibility_of_element_located(self.TIMER))
+            element = self.wait.until(EC.visibility_of_element_located(constants.TIMER))
         except:
             return False
         return True

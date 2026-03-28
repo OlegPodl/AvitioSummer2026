@@ -1,5 +1,6 @@
 from pages.statistics_page import StatisticPage
 from selenium.webdriver.support.ui import WebDriverWait
+from pages.constants import WAITING_TIME
 
 def test_timer_control_container_01(driver):
     page = StatisticPage(driver)
@@ -30,7 +31,7 @@ def test_time_control_container_03(driver):
 
     page.stop_timer()
     try:
-        WebDriverWait(driver, 5).until(lambda d: False)
+        WebDriverWait(driver, 10).until(lambda d: False)
     except:
         pass
 
@@ -42,7 +43,7 @@ def test_time_control_container_04(driver):
 
     page.stop_timer()
     try:
-        WebDriverWait(driver, 5).until(lambda d: False)
+        WebDriverWait(driver, 10).until(lambda d: False)
     except:
         pass
 
@@ -50,11 +51,11 @@ def test_time_control_container_04(driver):
 
     page.start_timer()
     try:
-        WebDriverWait(driver, 10).until(lambda d: False)
+        WebDriverWait(driver, WAITING_TIME).until(lambda d: False)
     except:
         pass
 
-    assert not page.is_timer_visible(), f"Таймер не продолжил отсчет после возобновления"
+    assert page.is_timer_visible(), f"Таймер не продолжил отсчет после возобновления"
 
     page.driver.get_log("performance")
     time2 = page.get_time_to_update()

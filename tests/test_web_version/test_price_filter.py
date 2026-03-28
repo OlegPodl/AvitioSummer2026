@@ -78,6 +78,3 @@ def test_price_filter_06(driver):
     num_of_all_listings_after_filters = page.count_listings()
 
     assert num_of_all_listings == num_of_all_listings_after_filters, f'Показаны не все объявления'
-
-
-    

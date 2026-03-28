@@ -1,0 +1,285 @@
+2026-03-28 19:39:31,630 - ERROR - ================================================================================
+2026-03-28 19:39:31,631 - ERROR - TIME: 2026-03-28 19:39:31.631199
+2026-03-28 19:39:31,631 - ERROR - TEST FAILED: tests/test_web_version/test_price_filter.py::test_price_filter_01
+2026-03-28 19:39:31,631 - ERROR - driver = <selenium.webdriver.chrome.webdriver.WebDriver (session="3dbcb5214bd9f0473d64005ac55e1c23")>
+
+    def test_price_filter_01(driver):
+        page = ListingsPage(driver)
+    
+        page.open()
+    
+        page.set_min_price("1000")
+        page.set_max_price("10000")
+    
+        prices = page.get_all_prices()
+    
+        assert len(prices) > 0, "Нет объявлений после применения фильтра"
+    
+        for price in prices:
+>           assert 1000 <= price <= 10000, f"Цена {price} вне диапазона 1000-10000"
+E           AssertionError: Цена 13792 вне диапазона 1000-10000
+E           assert 13792 <= 10000
+
+tests\test_web_version\test_price_filter.py:17: AssertionError
+2026-03-28 19:39:34,121 - ERROR - ================================================================================
+2026-03-28 19:39:34,122 - ERROR - TIME: 2026-03-28 19:39:34.122213
+2026-03-28 19:39:34,122 - ERROR - TEST FAILED: tests/test_web_version/test_price_filter.py::test_price_filter_01
+2026-03-28 19:39:34,122 - ERROR - driver = <selenium.webdriver.chrome.webdriver.WebDriver (session="3dbcb5214bd9f0473d64005ac55e1c23")>
+
+    def test_price_filter_01(driver):
+        page = ListingsPage(driver)
+    
+        page.open()
+    
+        page.set_min_price("1000")
+        page.set_max_price("10000")
+    
+        prices = page.get_all_prices()
+    
+        assert len(prices) > 0, "Нет объявлений после применения фильтра"
+    
+        for price in prices:
+>           assert 1000 <= price <= 10000, f"Цена {price} вне диапазона 1000-10000"
+E           AssertionError: Цена 13792 вне диапазона 1000-10000
+E           assert 13792 <= 10000
+
+tests\test_web_version\test_price_filter.py:17: AssertionError
+2026-03-28 19:39:36,618 - ERROR - ================================================================================
+2026-03-28 19:39:36,619 - ERROR - TIME: 2026-03-28 19:39:36.619155
+2026-03-28 19:39:36,619 - ERROR - TEST FAILED: tests/test_web_version/test_price_filter.py::test_price_filter_01
+2026-03-28 19:39:36,619 - ERROR - driver = <selenium.webdriver.chrome.webdriver.WebDriver (session="3dbcb5214bd9f0473d64005ac55e1c23")>
+
+    def test_price_filter_01(driver):
+        page = ListingsPage(driver)
+    
+        page.open()
+    
+        page.set_min_price("1000")
+        page.set_max_price("10000")
+    
+        prices = page.get_all_prices()
+    
+        assert len(prices) > 0, "Нет объявлений после применения фильтра"
+    
+        for price in prices:
+>           assert 1000 <= price <= 10000, f"Цена {price} вне диапазона 1000-10000"
+E           AssertionError: Цена 13792 вне диапазона 1000-10000
+E           assert 13792 <= 10000
+
+tests\test_web_version\test_price_filter.py:17: AssertionError
+2026-03-28 19:39:37,428 - ERROR - ================================================================================
+2026-03-28 19:39:37,429 - ERROR - TIME: 2026-03-28 19:39:37.429097
+2026-03-28 19:39:37,429 - ERROR - TEST FAILED: tests/test_web_version/test_price_filter.py::test_price_filter_02
+2026-03-28 19:39:37,429 - ERROR - driver = <selenium.webdriver.chrome.webdriver.WebDriver (session="3dbcb5214bd9f0473d64005ac55e1c23")>
+
+    def test_price_filter_02(driver):
+        page = ListingsPage(driver)
+    
+        page.open()
+    
+        page.set_min_price("-10000")
+        page.set_max_price("-1000")
+    
+        status = page.check_is_cards_visible()
+>       assert not status, f"Фильтр с отрицательными значениями применен успешно"
+E       AssertionError: Фильтр с отрицательными значениями применен успешно
+E       assert not True
+
+tests\test_web_version\test_price_filter.py:28: AssertionError
+2026-03-28 19:39:39,260 - ERROR - ================================================================================
+2026-03-28 19:39:39,261 - ERROR - TIME: 2026-03-28 19:39:39.261128
+2026-03-28 19:39:39,261 - ERROR - TEST FAILED: tests/test_web_version/test_price_filter.py::test_price_filter_02
+2026-03-28 19:39:39,261 - ERROR - driver = <selenium.webdriver.chrome.webdriver.WebDriver (session="3dbcb5214bd9f0473d64005ac55e1c23")>
+
+    def test_price_filter_02(driver):
+        page = ListingsPage(driver)
+    
+        page.open()
+    
+        page.set_min_price("-10000")
+        page.set_max_price("-1000")
+    
+        status = page.check_is_cards_visible()
+>       assert not status, f"Фильтр с отрицательными значениями применен успешно"
+E       AssertionError: Фильтр с отрицательными значениями применен успешно
+E       assert not True
+
+tests\test_web_version\test_price_filter.py:28: AssertionError
+2026-03-28 19:39:41,093 - ERROR - ================================================================================
+2026-03-28 19:39:41,093 - ERROR - TIME: 2026-03-28 19:39:41.093779
+2026-03-28 19:39:41,093 - ERROR - TEST FAILED: tests/test_web_version/test_price_filter.py::test_price_filter_02
+2026-03-28 19:39:41,094 - ERROR - driver = <selenium.webdriver.chrome.webdriver.WebDriver (session="3dbcb5214bd9f0473d64005ac55e1c23")>
+
+    def test_price_filter_02(driver):
+        page = ListingsPage(driver)
+    
+        page.open()
+    
+        page.set_min_price("-10000")
+        page.set_max_price("-1000")
+    
+        status = page.check_is_cards_visible()
+>       assert not status, f"Фильтр с отрицательными значениями применен успешно"
+E       AssertionError: Фильтр с отрицательными значениями применен успешно
+E       assert not True
+
+tests\test_web_version\test_price_filter.py:28: AssertionError
+2026-03-28 19:46:48,750 - ERROR - ================================================================================
+2026-03-28 19:46:48,751 - ERROR - TIME: 2026-03-28 19:46:48.751132
+2026-03-28 19:46:48,751 - ERROR - TEST FAILED: tests/test_web_version/test_statistic_page.py::test_time_control_container_04
+2026-03-28 19:46:48,751 - ERROR - driver = <selenium.webdriver.chrome.webdriver.WebDriver (session="3dbcb5214bd9f0473d64005ac55e1c23")>
+
+    def test_time_control_container_04(driver):
+        page = StatisticPage(driver)
+        page.open()
+    
+        page.stop_timer()
+        try:
+            WebDriverWait(driver, 10).until(lambda d: False)
+        except:
+            pass
+    
+        assert not page.is_timer_visible(), f" Таймер продолжает отсчет после остановки таймера"
+    
+        page.start_timer()
+        try:
+            WebDriverWait(driver, WAITING_TIME).until(lambda d: False)
+        except:
+            pass
+    
+>       assert page.is_timer_visible(), f"Таймер не продолжил отсчет после возобновления"
+E       AssertionError: Таймер не продолжил отсчет после возобновления
+E       assert False
+E        +  where False = is_timer_visible()
+E        +    where is_timer_visible = <pages.statistics_page.StatisticPage object at 0x0000022B4A4D1CD0>.is_timer_visible
+
+tests\test_web_version\test_statistic_page.py:58: AssertionError
+2026-03-28 19:47:47,837 - ERROR - ================================================================================
+2026-03-28 19:47:47,838 - ERROR - TIME: 2026-03-28 19:47:47.838613
+2026-03-28 19:47:47,838 - ERROR - TEST FAILED: tests/test_web_version/test_statistic_page.py::test_time_control_container_04
+2026-03-28 19:47:47,839 - ERROR - driver = <selenium.webdriver.chrome.webdriver.WebDriver (session="3dbcb5214bd9f0473d64005ac55e1c23")>
+
+    def test_time_control_container_04(driver):
+        page = StatisticPage(driver)
+        page.open()
+    
+        page.stop_timer()
+        try:
+            WebDriverWait(driver, 10).until(lambda d: False)
+        except:
+            pass
+    
+        assert not page.is_timer_visible(), f" Таймер продолжает отсчет после остановки таймера"
+    
+        page.start_timer()
+        try:
+            WebDriverWait(driver, WAITING_TIME).until(lambda d: False)
+        except:
+            pass
+    
+>       assert page.is_timer_visible(), f"Таймер не продолжил отсчет после возобновления"
+E       AssertionError: Таймер не продолжил отсчет после возобновления
+E       assert False
+E        +  where False = is_timer_visible()
+E        +    where is_timer_visible = <pages.statistics_page.StatisticPage object at 0x0000022B4A4D1F30>.is_timer_visible
+
+tests\test_web_version\test_statistic_page.py:58: AssertionError
+2026-03-28 19:48:46,990 - ERROR - ================================================================================
+2026-03-28 19:48:46,991 - ERROR - TIME: 2026-03-28 19:48:46.991284
+2026-03-28 19:48:46,991 - ERROR - TEST FAILED: tests/test_web_version/test_statistic_page.py::test_time_control_container_04
+2026-03-28 19:48:46,991 - ERROR - driver = <selenium.webdriver.chrome.webdriver.WebDriver (session="3dbcb5214bd9f0473d64005ac55e1c23")>
+
+    def test_time_control_container_04(driver):
+        page = StatisticPage(driver)
+        page.open()
+    
+        page.stop_timer()
+        try:
+            WebDriverWait(driver, 10).until(lambda d: False)
+        except:
+            pass
+    
+        assert not page.is_timer_visible(), f" Таймер продолжает отсчет после остановки таймера"
+    
+        page.start_timer()
+        try:
+            WebDriverWait(driver, WAITING_TIME).until(lambda d: False)
+        except:
+            pass
+    
+>       assert page.is_timer_visible(), f"Таймер не продолжил отсчет после возобновления"
+E       AssertionError: Таймер не продолжил отсчет после возобновления
+E       assert False
+E        +  where False = is_timer_visible()
+E        +    where is_timer_visible = <pages.statistics_page.StatisticPage object at 0x0000022B4A5AC4D0>.is_timer_visible
+
+tests\test_web_version\test_statistic_page.py:58: AssertionError
+2026-03-28 19:48:56,335 - ERROR - ================================================================================
+2026-03-28 19:48:56,336 - ERROR - TIME: 2026-03-28 19:48:56.336369
+2026-03-28 19:48:56,336 - ERROR - TEST FAILED: tests/test_web_version/test_toggle.py::test_toggle_express_01
+2026-03-28 19:48:56,336 - ERROR - driver = <selenium.webdriver.chrome.webdriver.WebDriver (session="3dbcb5214bd9f0473d64005ac55e1c23")>
+
+    def test_toggle_express_01(driver):
+        page = ListingsPage(driver)
+        page.open()
+    
+        toggle = page.wait.until(EC.presence_of_element_located((By.CLASS_NAME, '_urgentToggle__input_h1vv9_14')))
+        status = toggle.is_enabled()
+        if not status:
+            page.set_toggle()
+    
+        all_listings = page.count_listings()
+        listings_with_flag = page.count_urgent()
+    
+        assert page.get_priorety_value() == '', f"Приоритет в фильтре не совпадает с тогглом {page.get_priorety_value()}"
+>       assert all_listings == listings_with_flag, f"Не все объявления помечены флагом, объявлений без флага: {all_listings - listings_with_flag}"
+E       AssertionError: Не все объявления помечены флагом, объявлений без флага: 78
+E       assert 150 == 72
+
+tests\test_web_version\test_toggle.py:19: AssertionError
+2026-03-28 19:49:05,963 - ERROR - ================================================================================
+2026-03-28 19:49:05,964 - ERROR - TIME: 2026-03-28 19:49:05.964587
+2026-03-28 19:49:05,964 - ERROR - TEST FAILED: tests/test_web_version/test_toggle.py::test_toggle_express_01
+2026-03-28 19:49:05,965 - ERROR - driver = <selenium.webdriver.chrome.webdriver.WebDriver (session="3dbcb5214bd9f0473d64005ac55e1c23")>
+
+    def test_toggle_express_01(driver):
+        page = ListingsPage(driver)
+        page.open()
+    
+        toggle = page.wait.until(EC.presence_of_element_located((By.CLASS_NAME, '_urgentToggle__input_h1vv9_14')))
+        status = toggle.is_enabled()
+        if not status:
+            page.set_toggle()
+    
+        all_listings = page.count_listings()
+        listings_with_flag = page.count_urgent()
+    
+        assert page.get_priorety_value() == '', f"Приоритет в фильтре не совпадает с тогглом {page.get_priorety_value()}"
+>       assert all_listings == listings_with_flag, f"Не все объявления помечены флагом, объявлений без флага: {all_listings - listings_with_flag}"
+E       AssertionError: Не все объявления помечены флагом, объявлений без флага: 78
+E       assert 150 == 72
+
+tests\test_web_version\test_toggle.py:19: AssertionError
+2026-03-28 19:49:15,545 - ERROR - ================================================================================
+2026-03-28 19:49:15,546 - ERROR - TIME: 2026-03-28 19:49:15.546275
+2026-03-28 19:49:15,546 - ERROR - TEST FAILED: tests/test_web_version/test_toggle.py::test_toggle_express_01
+2026-03-28 19:49:15,546 - ERROR - driver = <selenium.webdriver.chrome.webdriver.WebDriver (session="3dbcb5214bd9f0473d64005ac55e1c23")>
+
+    def test_toggle_express_01(driver):
+        page = ListingsPage(driver)
+        page.open()
+    
+        toggle = page.wait.until(EC.presence_of_element_located((By.CLASS_NAME, '_urgentToggle__input_h1vv9_14')))
+        status = toggle.is_enabled()
+        if not status:
+            page.set_toggle()
+    
+        all_listings = page.count_listings()
+        listings_with_flag = page.count_urgent()
+    
+        assert page.get_priorety_value() == '', f"Приоритет в фильтре не совпадает с тогглом {page.get_priorety_value()}"
+>       assert all_listings == listings_with_flag, f"Не все объявления помечены флагом, объявлений без флага: {all_listings - listings_with_flag}"
+E       AssertionError: Не все объявления помечены флагом, объявлений без флага: 78
+E       assert 150 == 72
+
+tests\test_web_version\test_toggle.py:19: AssertionError
